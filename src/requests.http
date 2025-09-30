@@ -1,0 +1,15 @@
+### HTTP Client Requests for node-ts-express-api
+
+#### Get Root Endpoint
+```http
+GET {{protocol}}://{{host}}:{{port}}/
+
+#### Post Example (if applicable in the future)
+```http
+POST {{protocol}}://{{host}}:{{port}}/example
+Content-Type: application/json
+
+{
+  "key": "value"
+}
+```
