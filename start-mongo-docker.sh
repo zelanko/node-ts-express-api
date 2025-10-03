@@ -1,8 +1,9 @@
 #!/bin/bash
 
 podman run \
-  -d \
+  -detach \
   --name mongodb \
   --replace \
-  -p 27017:27017 \
+  --publish 27017:27017 \
+  --volume /home/ari-zelanko/data/mongodb:/data/db:rw \
   docker.io/mongodb/mongodb-community-server:latest
