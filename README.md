@@ -27,4 +27,4 @@ A Node.js REST API project using TypeScript and Express.js.
 - `npm start` — Start server (after build)
 
 ## License
-MIT
+The Unlicense
