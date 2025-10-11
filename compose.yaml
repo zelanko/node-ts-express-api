@@ -1,0 +1,8 @@
+services:
+  database:
+    image: docker.io/mongodb/mongodb-community-server:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - /home/ari/data/mongodb:/data/mongodb:rw
