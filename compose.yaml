@@ -1,6 +1,6 @@
 services:
   database:
-    image: docker.io/mongodb/mongodb-community-server:latest
+    image: docker.io/mongodb/mongodb-community-server:8.2-ubuntu2204
     container_name: mongodb
     ports:
       - "27017:27017"
