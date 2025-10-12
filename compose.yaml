@@ -1,8 +1,12 @@
 services:
   database:
-    image: docker.io/mongodb/mongodb-community-server:8.2-ubuntu2204
+    image: docker.io/mongodb/mongodb-community-server:8.2-ubi8
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ts-express-api-root
+      - MONGO_INITDB_ROOT_PASSWORD=ts-express-api-root-password
     container_name: mongodb
     ports:
       - "27017:27017"
     volumes:
-      - /home/ari/data/mongodb:/data/mongodb:rw
+      - ./data/mongodb:/data/db:rw
+      - ./data/mongodb/config:/data/configdb:rw

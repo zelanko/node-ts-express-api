@@ -22,6 +22,10 @@ A Node.js REST API project using TypeScript and Express.js.
 - Source code: `src/index.ts`
 - TypeScript config: `tsconfig.json`
 
+## Start MongoDB
+
+- Start mongodb running `podman compose up`
+
 ## Scripts
 - `npm run build` — Compile TypeScript
 - `npm start` — Start server (after build)
