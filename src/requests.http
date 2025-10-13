@@ -1,12 +1,17 @@
 ### HTTP Client Requests for node-ts-express-api
 
+@host = localhost
+@port = 3000
+@protocol = http
+
 #### Get Root Endpoint
-```http
+```
 GET {{protocol}}://{{host}}:{{port}}/
 
 #### Post Example (if applicable in the future)
-```http
-POST {{protocol}}://{{host}}:{{port}}/example
+```
+POST {{protocol}}://{{host}}:{{port}}/user
+Accept: application/json
 Content-Type: application/json
 
 {

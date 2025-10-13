@@ -7,6 +7,11 @@ app.get('/', (req, res) => {
   res.send('Hello World from Express + TypeScript!');
 });
 
+app.post('/user', (req, res) => {
+  console.log(`body: ${JSON.stringify(req.body)}`);
+  res.json({ message: 'User created successfully' });
+});
+
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
