@@ -3,13 +3,16 @@ import express from 'express';
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(express.json())
+
 app.get('/', (req, res) => {
   res.send('Hello World from Express + TypeScript!');
 });
 
 app.post('/user', (req, res) => {
-  console.log(`body: ${JSON.stringify(req.body)}`);
-  res.json({ message: 'User created successfully' });
+  const requestBody = req.body;
+  console.log(`Received request to create user. Request body: ${JSON.stringify(requestBody)}`);
+  res.send('User created successfully');
 });
 
 app.listen(port, () => {

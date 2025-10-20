@@ -4,17 +4,19 @@
 @port = 3000
 @protocol = http
 
-#### Get Root Endpoint
-```
-GET {{protocol}}://{{host}}:{{port}}/
+@url = {{protocol}}://{{host}}:{{port}}
 
-#### Post Example (if applicable in the future)
+#### Get Root Endpoint
+GET {{url}}/
 ```
-POST {{protocol}}://{{host}}:{{port}}/user
+#### Post Example (if applicable in the future)
+POST {{url}}/user?param1=value1&param2=value2
 Accept: application/json
 Content-Type: application/json
 
 {
-  "key": "value"
+  "name": {
+    "first": "John",
+    "last": "Doe" 
+  }
 }
-```
