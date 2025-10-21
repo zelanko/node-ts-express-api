@@ -11,14 +11,15 @@ app.get('/', (req, res) => {
   res.send('Hello World from Express + TypeScript!');
 });
 
-const client = new MongoClient(`mongodb://localhost:27017`,  {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
+const apiSpec = {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   }
-);
+};
+const connection = `mongodb://ts-express-api-root:ts-express-api-root-password@localhost:27017`;
+const client = new MongoClient(connection,  apiSpec);
 
 app.post('/user', async (req, res) => {
   const newUser: User = req.body;
@@ -29,7 +30,7 @@ app.post('/user', async (req, res) => {
   await client.connect();
 
   const insertResult = await client.db('ts-express-api-db')
-    .collection('Users')
+    .collection('User')
     .insertOne(newUser);
 
   let result = 'User created successfully';
