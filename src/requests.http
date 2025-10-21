@@ -10,7 +10,7 @@
 GET {{url}}/
 ```
 #### Post Example (if applicable in the future)
-POST {{url}}/user?param1=value1&param2=value2
+POST {{url}}/user
 Accept: application/json
 Content-Type: application/json
 
