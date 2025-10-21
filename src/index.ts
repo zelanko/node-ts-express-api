@@ -33,9 +33,10 @@ app.post('/user', async (req, res) => {
     .collection('User')
     .insertOne(newUser);
 
-  let result = 'User created successfully';
+  let result: string;
   if (insertResult.insertedId) {
-    console.log(`New user created with id: ${insertResult.insertedId}`);
+    result = `User created with id: ${insertResult.insertedId}`;
+    console.log(result);
   }
   else {
     result = 'Error creating user';
