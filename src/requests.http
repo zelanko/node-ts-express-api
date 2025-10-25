@@ -8,6 +8,9 @@
 #### Get Root Endpoint
 GET {{url}}/
 ```
+#### Get User by ID
+GET {{url}}/user/68ed6b077e9477118d282399
+```
 #### Post New User
 POST {{url}}/user
 Accept: application/json

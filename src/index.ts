@@ -19,7 +19,21 @@ const apiSpec = {
   }
 };
 const connection = `mongodb://ts-express-api-root:ts-express-api-root-password@localhost:27017`;
+const dbName = 'ts-express-api-db';
 const client = new MongoClient(connection,  apiSpec);
+
+app.get('/user/:id', async (req, res) => {
+  const id = req.params.id;
+
+  await client.connect();
+
+  
+  const user = await client.db(dbName)
+    .collection<User>('User')
+    .findOne({ _id: new ObjectId(id) });
+  
+  res.json(user);
+});
 
 app.post('/user', async (req, res) => {
   const newUser: User = req.body;
@@ -29,7 +43,7 @@ app.post('/user', async (req, res) => {
 
   await client.connect();
 
-  const insertResult = await client.db('ts-express-api-db')
+  const insertResult = await client.db(dbName)
     .collection('User')
     .insertOne(newUser);
 
