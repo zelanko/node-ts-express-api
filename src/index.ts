@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
+app.get('/', (req: express.Request, res: express.Response) => {
   res.send('Hello World from Express + TypeScript!');
 });
 
@@ -22,12 +22,11 @@ const connection = `mongodb://ts-express-api-root:ts-express-api-root-password@l
 const dbName = 'ts-express-api-db';
 const client = new MongoClient(connection,  apiSpec);
 
-app.get('/user/:id', async (req, res) => {
+app.get('/user/:id', async (req: express.Request, res: express.Response) => {
   const id = req.params.id;
 
   await client.connect();
 
-  
   const user = await client.db(dbName)
     .collection<User>('User')
     .findOne({ _id: new ObjectId(id) });
@@ -35,7 +34,7 @@ app.get('/user/:id', async (req, res) => {
   res.json(user);
 });
 
-app.post('/user', async (req, res) => {
+app.post('/user', async (req: express.Request, res: express.Response) => {
   const newUser: User = req.body;
 
   newUser.createdAt = new Date();
@@ -58,6 +57,4 @@ app.post('/user', async (req, res) => {
   res.send(result);
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+app.listen(port, () => console.log(`Server is running at http://localhost:${port}`));
